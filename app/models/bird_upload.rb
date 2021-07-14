@@ -1,0 +1,2 @@
+class BirdUpload < ApplicationRecord
+end
