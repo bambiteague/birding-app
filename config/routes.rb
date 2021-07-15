@@ -12,4 +12,10 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   delete '/logout' => 'sessions#destroy'
 
+  get '/complete' => 'users#complete'
+  post '/complete' => 'users#complete'
+
+  resources :sessions
+
+  
 end
