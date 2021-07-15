@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_14_152804) do
+ActiveRecord::Schema.define(version: 2021_07_15_183306) do
 
   create_table "birds", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -38,6 +38,9 @@ ActiveRecord::Schema.define(version: 2021_07_14_152804) do
     t.string "username"
     t.text "email"
     t.string "location"
+    t.string "password_digest"
+    t.string "uid"
+    t.string "provider"
   end
 
 end
