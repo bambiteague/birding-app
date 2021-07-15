@@ -14,9 +14,7 @@
               <% if logged_in?%>
                 <%= link_to "Logout", logout_path, method: "delete" %> | 
                 <%= link_to "Home", root_path %> | 
-                <%= link_to "Profile",  profile_path %> 
               <% else %>
-                <%= link_to "Designers", globalusers_path %> | 
                 <%= link_to "Sign Up", signup_path %> |
                 <%= link_to "Log in", login_path %> 
                 <%= button_to "Log in with Google", '/auth/google_oauth2' %>
