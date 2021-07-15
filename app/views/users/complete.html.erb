@@ -1,0 +1,13 @@
+<h1>Before you're ready to submit or recieve costume commissions, please complete your account profile:</h1>
+   
+<%=  form_for(@user, url: '/complete') do |f|%>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <br>
+  <br>  
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <br>
+  <br>
+<%= f.submit "complete profile" %>
+  <% end %>
