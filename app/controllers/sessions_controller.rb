@@ -6,10 +6,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = Globaluser.find_by(username: params[:globaluser][:username])
-    if user && user.authenticate(params[:globaluser][:password])
-      session[:globaluser_id] = user.id
-      redirect_to profile_path
+    user = User.find_by(username: params[:user][:username])
+    if user && user.authenticate(params[:user][:password])
+      session[:user_id] = user.id
+      redirect_to profile_path  # <---this is wrong (from old project/need to fix)
     else
       flash[:message] = "Incorrect login information" 
       redirect_to '/login'
@@ -17,13 +17,9 @@ class SessionsController < ApplicationController
   end
 
   def omniauth
-    #processing the response we recieved from Google and either:
-    #create a new user 
-    #or 
-    #log in an existing user
-    user = Globaluser.from_omniauth(request.env['omniauth.auth'])
+    user = User.from_omniauth(request.env['omniauth.auth'])
     if user.valid?
-      session[:globaluser_id] = user.id
+      session[:user_id] = user.id
       redirect_to complete_path
     else
       redirect_to '/login'
