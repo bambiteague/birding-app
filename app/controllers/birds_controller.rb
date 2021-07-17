@@ -8,7 +8,7 @@ class BirdsController < ApplicationController
     @bird = Bird.new(bird_params)
 
     if @bird.save
-      redirect_to birds_path
+      redirect_to bird_path(@bird)
     end
   end
 
