@@ -6,9 +6,10 @@ class BirdsController < ApplicationController
 
   def create
     @bird = Bird.new(bird_params)
-
     if @bird.save
       redirect_to bird_path(@bird)
+    else
+      render :new
     end
   end
 

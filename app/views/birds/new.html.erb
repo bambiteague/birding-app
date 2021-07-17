@@ -1,3 +1,5 @@
+<h2>Found a bird? Leave a record here for later:</h2>
+
 <%= form_for @bird do |f| %>
   <%= f.label :species %>
   <%= f.text_field :species %>
@@ -15,5 +17,21 @@
   <%=  f.text_field :quantity %>
     <br>
     <br>
+<h2>Where and When was this sighting?</h2>
+  <%= f.fields_for :sighting do |s| %>
+    <%= s.label(:location) %>
+    <%= s.text_field :location %>
+    <br>
+    <br>
+    <%= s.label(:date_spotted) %>
+    <%= s.text_field :date_spotted %>
+    <br>
+    <br>
+    <%= s.label(:location) %>
+    <%= s.text_field :location %>
+    <br>
+    <br>
+  <%= end %>`
+
   <%= f.submit %>
 <% end %>
