@@ -1,10 +1,6 @@
-<%= form_with(model: [:bird], method: :post, local: true)  do |f| %>
+<%= form_for @bird do |f| %>
   <%= f.label :species %>
-  <%= f.text_field :title %>
-    <br>
-    <br>
-  <%= f.label :location %>
-  <%= f.text_field :location
+  <%= f.text_field :species %>
     <br>
     <br>
   <%=  f.label :visual_description%>

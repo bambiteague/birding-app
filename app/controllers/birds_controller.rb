@@ -1,10 +1,15 @@
 class BirdsController < ApplicationController
 
   def new
-    @bird = Bird.new(bird_params)
+    @bird = Bird.new
   end
 
   def create
+    @bird = Bird.new(bird_params)
+
+    if @bird.save
+      redirect_to birds_path
+    end
   end
 
   def index
