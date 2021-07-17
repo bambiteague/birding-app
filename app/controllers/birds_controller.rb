@@ -2,6 +2,7 @@ class BirdsController < ApplicationController
 
   def new
     @bird = Bird.new
+    @bird.sightings.build
   end
 
   def create
@@ -31,7 +32,7 @@ class BirdsController < ApplicationController
   private
 
   def bird_params
-    params.require(:bird).permit(:species, :visual_description, :call_description, :quantity)
+    params.require(:bird).permit(:species, :visual_description, :call_description, :quantity, sightings_attributes: [:location, :date_spotted])
   end
   
 end
