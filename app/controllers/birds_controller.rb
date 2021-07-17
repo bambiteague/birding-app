@@ -7,8 +7,9 @@ class BirdsController < ApplicationController
 
   def create
     @bird = Bird.new(bird_params)
+    byebug
     if @bird.save
-      redirect_to bird_path(@bird)
+      redirect_to birds_path(@bird)
     else
       render :new
     end
