@@ -1,0 +1,6 @@
+<h1>All Sightings:</h1>
+
+<%= @sightings.each do |s| %>
+ <li><%= @sightings.location %><br>
+ <%= @sightings.date_spotted %>
+<% end %>

@@ -15,6 +15,7 @@ class BirdsController < ApplicationController
   end
 
   def index
+    @birds = Bird.all
   end
 
   def show
