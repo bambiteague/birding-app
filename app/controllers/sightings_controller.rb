@@ -34,7 +34,18 @@ class SightingsController < ApplicationController
   private
 
   def sighting_params
-    params.require(:sighting).permit(:location, :date_spotted, :user_id, :bird_id, bird_attributes: [:species, :visual_description, :call_description, :quantity])
+    params.require(:sighting).permit(
+      :location, 
+      :date_spotted, 
+      :user_id, 
+      :bird_id, 
+      bird_attributes: [
+        :species, 
+        :visual_description, 
+        :call_description, 
+        :quantity
+      ]
+    )
   end
 
 end
