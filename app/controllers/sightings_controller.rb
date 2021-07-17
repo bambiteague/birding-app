@@ -15,6 +15,7 @@ class SightingsController < ApplicationController
   end
 
   def index
+    @sightings = Sighting.all
   end
 
   def show
