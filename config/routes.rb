@@ -17,15 +17,13 @@ Rails.application.routes.draw do
   post '/complete' => 'users#complete'
 
   resources :sessions
+  resources :sightings
 
 # Still need to do a lot of tweaking on the nested routes below
-
   resources :birds do 
     resources :sightings
   end
-
   resources :users do 
-    resources :sightings
+    resources :sightings, only:[index, show]
   end
-
 end
