@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback' => 'sessions#omniauth'
 
+
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
 
@@ -17,5 +18,5 @@ Rails.application.routes.draw do
 
   resources :sessions
 
-  
+
 end
