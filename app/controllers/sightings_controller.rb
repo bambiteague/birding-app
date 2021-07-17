@@ -6,9 +6,9 @@ class SightingsController < ApplicationController
   end
 
   def create
-    @sighting = Sighting.new(sighting_params)
+    @sighting = Sighting.new(sighting_params)  #these aren't actually saving...but I don't hit the else statement. Acts like it saved and redirects, DB shows that now sightings are being saved. 
     if @sighting.save
-      redirect_to sightings_path(@sighting)
+      redirect_to sightings_path
     else
       render :new
     end
@@ -19,6 +19,7 @@ class SightingsController < ApplicationController
   end
 
   def show
+    @sighting = Sighting.find(params[:id])
   end
 
   def edit
@@ -33,7 +34,7 @@ class SightingsController < ApplicationController
   private
 
   def sighting_params
-    params.require(:sightings).permit(:location, :date_spotted, :user_id, :bird_id, bird_attributes: [:species, :visual_description, :call_description, :quantity])
+    params.require(:sighting).permit(:location, :date_spotted, :user_id, :bird_id, bird_attributes: [:species, :visual_description, :call_description, :quantity])
   end
 
 end

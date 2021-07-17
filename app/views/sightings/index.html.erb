@@ -1,6 +1,5 @@
 <h1>All Sightings:</h1>
 
-<li><%= @sightings.collect do |s| %>
-  <%= s.location %><br>
-  <%= s.date_spotted %></li>
+<% @sightings.collect do |s| %>
+  <p><%= link_to(s.location, sightings_path(s)) %> - <%= s.date_spotted %></p>
 <% end %>
