@@ -19,5 +19,10 @@ Rails.application.routes.draw do
 
   resources :sessions
 
+  resources :birds
 
+  resources :users
+
+  resources :sightings
+  
 end

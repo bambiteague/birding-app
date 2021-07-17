@@ -11,9 +11,9 @@
   </head>
 <body>
     <!---------------NAVBAR--------------->
-              <% if logged_in?%>
+              <% if logged_in? %>
                 <%= link_to "Logout", logout_path, method: "delete" %> | 
-                <%= link_to "Home", root_path %> | 
+                <%= link_to "Home", root_path %>
               <% else %>
                 <%= link_to "Sign Up", signup_path %> |
                 <%= link_to "Log in", login_path %> 
