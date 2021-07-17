@@ -1,11 +1,17 @@
 class SightingsController < ApplicationController
 
   def new
-    @sighting = Sighting.new(sighting_params)
+    @sighting = Sighting.new
+    @sighting.build_bird
   end
 
   def create
-
+    @sighting = Sighting.new(sighting_params)
+    if @sighting.save
+      redirect_to sightings_path(@sighting)
+    else
+      render :new
+    end
   end
 
   def index
