@@ -29,7 +29,7 @@ class BirdsController < ApplicationController
   private
 
   def bird_params
-    params.require(:bird).permit(:species, :visual_description, :call_description, :quantity, sightings_attributes: [:location, :date_spotted])
+    params.require(:bird).permit(:species, :visual_description, :call_description, :quantity)
   end
   
 end
