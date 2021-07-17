@@ -1,7 +1,10 @@
 class BirdsController < ApplicationController
 
   def new
-    @bird = Bird.find_or_create_by(bird_params)
+    @bird = Bird.new(bird_params)
+  end
+
+  def create
   end
 
   def index

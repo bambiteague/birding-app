@@ -1,7 +1,11 @@
 class SightingsController < ApplicationController
 
   def new
-    @sighting = Sighting.find_or_create_by(sighting_params)
+    @sighting = Sighting.new(sighting_params)
+  end
+
+  def create
+
   end
 
   def index

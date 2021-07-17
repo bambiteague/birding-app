@@ -1,22 +1,23 @@
-<%= form_with(model: [:bird, method: :post, local: true)  do |f| %>
-  <%= f.label :title %>
+<%= form_with(model: [:bird], method: :post, local: true)  do |f| %>
+  <%= f.label :species %>
   <%= f.text_field :title %>
     <br>
     <br>
-  <%= f.label "What kind of commission are you requesting?", class: "control-label" %>
-  <%= f.select :style, 
-    {
-      "Full Suits:" => [["plantigrade full", "plantigrade"], ["digigrade full", "digigrade"]],
-      "Suit Parts:" => [["head", "head"], ["tail", "tail"], ["hand-paws", "hand_paws"], ["feet-paws", "feed_paws"], ["mini-partial suit", "mini_partial"], ["3/4 partial suit", "3_4ths"]]
-    }, selected: "head" %> 
+  <%= f.label :location %>
+  <%= f.text_field :location
     <br>
     <br>
-  <%=  f.label "Select a Designer", class: "control-label"%>
-  <%=  f.collection_select :globaluser_id, Globaluser.designer, :id, :username %>
+  <%=  f.label :visual_description%>
+  <%=  f.text_area :visual_description %>
     <br>
     <br>
-  <%= f.label :reference_sheet %>
-  <%= f.text_field :reference_sheet %>
+  <%= f.label :call_description %>
+  <%= f.text_area :call_description %>
+  <br>
+  <br>
+  <%=  f.label :quantity %>
+  <%=  f.text_field :quantity %>
+    <br>
     <br>
   <%= f.submit %>
 <% end %>
