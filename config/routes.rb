@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "sessions#home"
 
   get '/auth/:provider/callback' => 'sessions#omniauth'
+  #wanted a post route? didn't need one last project for Oauth to work....
 
 
   get '/signup' => 'users#new'
