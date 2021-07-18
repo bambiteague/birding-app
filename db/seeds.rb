@@ -2,11 +2,11 @@
 #THE ONLY DATA SEEDING IS THE BIRDS......
 #USER AND BIRD OBJECTS DON'T SEEM TO BE SAVING TO THE DB
 
-User.create(name: "Bobby Smith", age: 22, username: "Bobby123", email: "bobby123@gmail.com", location: "TX, USA")
-User.create(name: "Jordan Mann", age: 29, username: "Jmann", email: "j.mann@gmail.com", location: "TX, USA")
-User.create(name: "Sarah Stewart", age: 54, username: "MissBirdQueen", email: "SarahStewart@gmail.com", location: "TX, USA")
-User.create(name: "Ted Logan", age: 43, username: "ThisIsTed", email: "t.logan@gmail.com", location: "TX, USA")
-User.create(name: "Hayley Jamison", age: 35, username: "HayleyGirl1", email: "HayleyGirl1@gmail.com", location: "TX, USA")
+User.create(name: "Bobby Smith", age: 22, username: "Bobby123", email: "bobby123@gmail.com", location: "TX, USA", password: "butthole")
+User.create(name: "Jordan Mann", age: 29, username: "Jmann", email: "j.mann@gmail.com", location: "TX, USA", password: "butthole")
+User.create(name: "Sarah Stewart", age: 54, username: "MissBirdQueen", email: "SarahStewart@gmail.com", location: "TX, USA", password: "butthole")
+User.create(name: "Ted Logan", age: 43, username: "ThisIsTed", email: "t.logan@gmail.com", location: "TX, USA", password: "butthole")
+User.create(name: "Hayley Jamison", age: 35, username: "HayleyGirl1", email: "HayleyGirl1@gmail.com", location: "TX, USA", password: "butthole")
 
 
 Bird.create(species: "Mocking Bird", visual_description: "Smaller, lean bird. Mix of grey, white, and black feathers", call_description: "was mimicking a common spearrow at the time!", quantity: 1)
