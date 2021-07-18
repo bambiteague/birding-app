@@ -18,12 +18,13 @@ Rails.application.routes.draw do
 
   resources :sessions
   resources :sightings
+  resources :users
 
   #  Still need to do a lot of tweaking on the nested routes below
-  resources :birds do 
+  resources :birds do         # Impliment shallow nesting
     resources :sightings
   end
 #   resources :users do 
-#     resources :sightings
+#     resources :sightings    # <---- do I need this nested route?
 #   end
 end
