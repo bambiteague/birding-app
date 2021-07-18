@@ -1,0 +1,31 @@
+<h2>Edit The Sighting Here:</h2>
+<%= form_for(@sighting) do |f| %>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+    <br>
+    <br>
+  <%= f.label :date_spotted%>
+  <%= f.text_area :date_spotted %>
+    <br>
+    <br>
+<h4>& Your Bird Here:</h4>
+  <%= f.fields_for :bird do |s| %>
+    <%= s.label :species %>
+    <%= s.text_field :species %>
+    <br>
+    <br>
+    <%= s.label :visual_description %>
+    <%= s.text_area :visual_description %>
+    <br>
+    <br>
+    <%= s.label :call_description %>
+    <%= s.text_area :call_description %>
+    <br>
+    <br>
+    <%= s.label :quantity %>
+    <%= s.text_field :quantity %>
+    <br>
+    <br>
+  <% end %>
+<%= f.submit %>
+<% end %>

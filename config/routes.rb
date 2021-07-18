@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "sessions#home"
 
   get '/auth/:provider/callback' => 'sessions#omniauth'
-  #wanted a post route? didn't need one last project for Oauth to work
+  post '/auth/:provider/callback' => 'sessions#omniauth'
 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
@@ -17,12 +17,10 @@ Rails.application.routes.draw do
   post '/complete' => 'users#complete'
 
   resources :sessions
-  resources :sightings
-  resources :users
-
-  #  Still need to do a lot of tweaking on the nested routes below
-  resources :birds do         # Impliment shallow nesting
-    resources :sightings
+  resources :sightings, only: [:show, :edit, :update, :destroy]
+  resources :users, only: [:new, :create]
+  resources :birds do        
+    resources :sightings, only: [:new, :index, :create]
   end
 #   resources :users do 
 #     resources :sightings    # <---- do I need this nested route?
