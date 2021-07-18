@@ -7,8 +7,7 @@ class SightingsController < ApplicationController
 
   def create
     new_bird = Bird.create(sighting_params[:bird_attributes])
-    @sighting = Sighting.new(sighting_params) 
-    byebug
+    @sighting = Sighting.new({bird_id: new_bird.id, user_id: current_user.id, location: sighting_params[:location], date_spotted: sighting_params[:date_spotted]}) 
     if @sighting.save
       redirect_to sightings_path
     else
@@ -42,8 +41,6 @@ class SightingsController < ApplicationController
     params.require(:sighting).permit(
       :location, 
       :date_spotted, 
-      user_id: [], 
-      bird_id: [], 
       bird_attributes: [
         :species, 
         :visual_description, 
