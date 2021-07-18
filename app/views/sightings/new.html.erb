@@ -1,5 +1,4 @@
 <h2>When & where was this sighting?</h2>
-
 <%= form_for(@sighting) do |f| %>
   <%= f.label :location %>
   <%= f.text_field :location %>
@@ -7,9 +6,14 @@
     <br>
   <%= f.label :date_spotted%>
   <%= f.text_field :date_spotted %>
-    <br>
-    <br>
+    <br><br>
+    <hr>
 <h3>What bird did you see?</h3>
+<h4>Browse from previously spotted birds species:</h4>
+  <%= f.collection_select :bird_id, Bird.all, :id, :species %>
+  <br><br>
+  <hr>
+<h4>OR enter a newly spotted bird species below:</h4>
   <%= f.fields_for :bird do |s| %>
     <%= s.label :species %>
     <%= s.text_field :species %>
