@@ -1,2 +1,10 @@
-sightings show page here! 
+<h2><%= @sighting.location %></h2>
+<h3><%= @sighting.date_spotted %></h3>
+
+The <%= @sighting.bird.species %> was observed during this sighting by <%= @sighting.user.name %>
+<ul>
+<li><%= @sighting.bird.visual_description %></li>
+<li><%= @sighting.bird.call_description %></li>
+</ul>
+
 

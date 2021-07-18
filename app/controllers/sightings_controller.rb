@@ -29,6 +29,12 @@ class SightingsController < ApplicationController
 
   def update
    find_sighting_by_id_params
+   @sighting.update(sighting_params)
+   if @sighting.valid?
+    redirect_to sighting_path
+   else
+    render :edit
+   end
   end
 
   def destroy
