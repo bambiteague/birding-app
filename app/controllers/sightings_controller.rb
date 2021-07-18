@@ -2,8 +2,7 @@ class SightingsController < ApplicationController
 
   def new
     @sighting = Sighting.new   
-    @sighting.build_bird = new_bird
-    new_bird.id = params[:bird_id]
+    @sighting.build_bird 
   end
 
   def create
@@ -21,19 +20,19 @@ class SightingsController < ApplicationController
   end
 
   def show
-    @sighting = Sighting.find(params[:id])
+   find_sighting_by_id_params
   end
 
   def edit
-    @sighting = Sighting.find(params[:id])
+   find_sighting_by_id_params
   end
 
   def update
-    @sighting = Sighting.find(params[:id])
+   find_sighting_by_id_params
   end
 
   def destroy
-    @sighting = Sighting.find(params[:id])
+   find_sighting_by_id_params
   end
 
   private
@@ -49,6 +48,10 @@ class SightingsController < ApplicationController
         :quantity
       ]
     )
+  end
+
+  def find_sighting_by_id_params
+    @sighting = Sighting.find(params[:id])
   end
 end
 

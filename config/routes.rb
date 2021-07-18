@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   post '/complete' => 'users#complete'
 
   resources :sessions
-  resources :sightings, only: [:show, :edit, :update, :destroy]
+  resources :sightings
   resources :users, only: [:new, :create]
   resources :birds do        
     resources :sightings, only: [:new, :index, :create]
