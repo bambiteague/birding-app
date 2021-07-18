@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root "sessions#home"
 
   get '/auth/:provider/callback' => 'sessions#omniauth'
@@ -16,13 +17,13 @@ Rails.application.routes.draw do
   get '/complete' => 'users#complete'
   post '/complete' => 'users#complete'
 
-  resources :sessions
-  resources :sightings
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :sightings, only: [:show, :index, :destroy]
   resources :users, only: [:new, :create]
-  resources :birds do        
-    resources :sightings, only: [:new, :index, :create]
+  resources :birds
+  
+  resources :users do 
+    resources :sightings , only: [:new, :create, :index]
   end
-#   resources :users do 
-#     resources :sightings    # <---- do I need this nested route?
-#   end
+
 end
