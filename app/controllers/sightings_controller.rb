@@ -38,7 +38,8 @@ class SightingsController < ApplicationController
   end
 
   def destroy
-   find_sighting_by_id_params
+   x = find_sighting_by_id_params
+   x.destroy
   end
 
   private
