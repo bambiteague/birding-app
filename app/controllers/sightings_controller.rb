@@ -3,11 +3,12 @@ class SightingsController < ApplicationController
   def new
     @sighting = Sighting.new
     @sighting.build_bird
+    @sighting.save
   end
 
   def create
-    @sighting = Sighting.new(sighting_params)  #these aren't actually saving...but I don't hit the else statement. Acts like it saved and redirects, DB shows that now sightings are being saved. 
-    if @sighting.save
+    @sighting = Sighting.new(sighting_params) 
+    if @sighting.save!
       redirect_to sightings_path
     else
       render :new

@@ -19,11 +19,11 @@ Rails.application.routes.draw do
   resources :sessions
   resources :sightings
 
-# Still need to do a lot of tweaking on the nested routes below
+  #  Still need to do a lot of tweaking on the nested routes below
   resources :birds do 
     resources :sightings
   end
-  resources :users do 
-    resources :sightings, only:[index, show]
-  end
+#   resources :users do 
+#     resources :sightings
+#   end
 end
