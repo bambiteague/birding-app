@@ -1,3 +1,14 @@
+<% if @sighting.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@sighting.errors.count, "error") %> prohibited this sighting from being saved:</h2>
+    <ul>
+      <% @sighting.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h2>Edit The Sighting Here:</h2>
 <%= form_for(@sighting) do |f| %>
   <%= f.label :location %>
