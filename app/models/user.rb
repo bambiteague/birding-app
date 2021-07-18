@@ -6,11 +6,12 @@ class User < ApplicationRecord
 
   #something about my validations below messed up login / commented out for now ----->
   
-      # validates :username, presence: {message: "Please create a username for your account!"}
-      # validates :username, uniqueness: {message: "Username already in use!"}
-      # validates :email, uniqueness: {message: "Uh oh! It looks like this email address is already in use for our site! Please submit a different email address."}
-      # validates :password, presence: {message: "OOPS! Make sure you've entered a password that's 6-20   characters in length!"}
-      # validates :password,  length: { in: 6..20 }
+      validates :username, presence: true, {message: "is required"}
+      validates :username, uniqueness: true, {message: "already in use"}
+      validates :location, presence: true, {message: "please let us know where you're birding from"}
+      validates :email, presence: true, uniqueness: true, {message: "already in use"}
+      validates :password, presence: true, {message: "is required"}
+      validates :password,  length: { in: 6..20 }, {message: "keep between 6-20 characters"}
 
   def self.from_omniauth(response)
     User.find_or_create_by(uid: response[:uid], provider: response[:provider]) do |u|
