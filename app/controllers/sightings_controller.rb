@@ -1,15 +1,15 @@
 class SightingsController < ApplicationController
 
   def new
-    @sighting = current_user.sightings.new  #something I'm trying out, doesn't seem to change the issue
-    @sighting.build_bird
+    @sighting = Sightings.new   
+    # @sighting.build_bird   <----pretty sure this is supposed to help me where the non-DRY code is in #Create 
   end
 
   def create
     new_bird = Bird.create(sighting_params[:bird_attributes])
     @sighting = Sighting.new({bird_id: new_bird.id, user_id: current_user.id, location: sighting_params[:location], date_spotted: sighting_params[:date_spotted]}) 
     if @sighting.save
-      redirect_to sightings_path
+      redirect_to sightings_path    # ^^ all this is NOT DRY and manual, instead of Rails "magic", but the only way it works ATM ---> NEEDS REFACTORING BEFORE SUBMISSION!!!
     else
       render :new
     end
