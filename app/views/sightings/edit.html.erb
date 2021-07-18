@@ -1,11 +1,11 @@
 <h2>Edit The Sighting Here:</h2>
 <%= form_for(@sighting) do |f| %>
   <%= f.label :location %>
-  <%= f.text_field :location %>
+  <%= f.text_field :location, required: true %>
     <br>
     <br>
   <%= f.label :date_spotted%>
-  <%= f.text_field :date_spotted %>
+  <%= f.text_field :date_spotted, required: true %>
     <br>
     <br>
 <h3>& Your Bird Here:</h3>
@@ -23,7 +23,7 @@
     <br>
     <br>
     <%= s.label :quantity %>
-    <%= s.text_field :quantity %>
+    <%= s.text_field :quantity, required: true, max: 100 %>
     <br>
     <br>
   <% end %>

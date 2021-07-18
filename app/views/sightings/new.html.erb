@@ -1,11 +1,11 @@
 <h2>When & where was this sighting?</h2>
 <%= form_for(@sighting) do |f| %>
   <%= f.label :location %>
-  <%= f.text_field :location %>
+  <%= f.text_field :location, required: true %>
     <br>
     <br>
   <%= f.label :date_spotted%>
-  <%= f.text_field :date_spotted %>
+  <%= f.text_field :date_spotted, required: true %>
     <br><br>
     <hr>
 <h3>What bird did you see?</h3>
@@ -27,7 +27,7 @@
     <%= s.text_area :call_description %>
     <br>
     <br>
-    <%= s.label :quantity %>
+    <%= s.label :quantity, required: true, max: 100 %>
     <%= s.text_field :quantity %>
     <br>
     <br>
