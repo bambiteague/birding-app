@@ -22,12 +22,13 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resources :birds
   
-  resources :users do 
+  resources :birds do 
     resources :sightings, shallow: true
   end
 
   resources :users do 
-    resources :birds, only: [:index]
+    resources :birds, only: [:index] 
+    #this one may not be fully nested because of nesting under user
   end
 
 end
