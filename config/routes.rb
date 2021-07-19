@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  get '/sightings/most_recent' => 'sightings#most_recent'
 
   root "sessions#home"
 
-  get '/auth/google_oauth2/callback' => 'sessions#omniauth'
+  get '/auth/:provider/callback' => 'sessions#omniauth'
 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
@@ -18,16 +19,10 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :sightings
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
   resources :birds
   
   resources :birds do 
     resources :sightings, only: [:new, :create, :index, :show]
   end
-
-  resources :users do 
-    resources :birds, only: [:index] 
-    #this one may not be fully nested because of nesting under user
-  end
-
 end

@@ -17,8 +17,8 @@ class User < ApplicationRecord
     end
   end
 
-  def complete
-    @user = User.find_by(id: params[:id])
+  def user_with_most_sightings
+    self.user_with_most_sightings = User.find_by
   end
 
 end

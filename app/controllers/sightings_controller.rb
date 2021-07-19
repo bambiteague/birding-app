@@ -9,8 +9,8 @@ class SightingsController < ApplicationController
   end
 
   def show
-    @bird = Bird.find_by_id(params[:bird_id])
-    find_sighting_by_id_params
+    @bird = Bird.find(params[:species])
+    @sighting = @bird.sightings
   end
 
   def new
@@ -44,6 +44,10 @@ class SightingsController < ApplicationController
   def destroy
     find_sighting_by_id_params
     @sighting.destroy
+  end
+
+  def most_recent
+    @sighting = Sighting.most_recent_bird_sighting
   end
 
   private
