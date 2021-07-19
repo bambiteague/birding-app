@@ -15,15 +15,7 @@ class BirdsController < ApplicationController
   end
 
   def show
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
+  #this needs to get working and I can't figure it out rn
   end
 
   private
@@ -38,3 +30,5 @@ class BirdsController < ApplicationController
   end
   
 end
+
+

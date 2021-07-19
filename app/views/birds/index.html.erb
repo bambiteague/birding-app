@@ -1,5 +1,7 @@
-<h2>All Birds:</h2>
+<h2>All Recorded Birds:</h2>
 
-<% @birds.each do |b| %>
- <li><%= b.species %></li>
+<ul>
+<% @birds.each do |bird| %>
+ <li><%= link_to bird.species, bird_path(bird) %></li>
 <% end %>
+</ul>
