@@ -1,9 +1,9 @@
 
 <h3>Meet The... </h3>
-<h1><%= @bird.species %>!</h1>
+<h1><%= @species %>!</h1>
 
 <%# put an image link here ?! %>
 
-<%= button_to 'All sightings of this bird', bird_sightings_path(@bird) %>
+<%= link_to 'All sightings of this bird', bird_sightings_path(@species) %>
 
 

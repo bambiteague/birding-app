@@ -14,7 +14,6 @@ class SightingsController < ApplicationController
   end
 
   def new
-    @bird = Bird.find_by_id(params[:bird_id])
     @sighting = Sighting.new   
     @sighting.build_bird 
   end

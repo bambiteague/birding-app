@@ -1,10 +1,14 @@
-<h3>Before you're ready to start recording your bird sightings, please complete your account profile:</h3>
+<h1>Before you're ready to submit bird records, please fill in some more account information:</h1>
    
 <%=  form_for(@user, url: '/complete') do |f|%>
   <%= f.label :username %>
   <%= f.text_field :username %>
   <br>
   <br>  
+  <%= f.label :age %>
+  <%= f.text_field :age %>
+  <br>
+  <br>
   <%= f.label :location %>
   <%= f.text_field :location %>
   <br>
