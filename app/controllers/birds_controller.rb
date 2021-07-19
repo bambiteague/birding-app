@@ -15,7 +15,8 @@ class BirdsController < ApplicationController
   end
 
   def show
-  #this needs to get working and I can't figure it out rn
+    @bird = Bird.find_by_id(params[:bird_id])
+   # Getting NilClass errors when I call any attribute on @bird object found...
   end
 
   private

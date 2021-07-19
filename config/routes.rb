@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   resources :birds
   
   resources :birds do 
-    resources :sightings, shallow: true
+    resources :sightings, only: [:new, :create, :index, :show]
   end
 
   resources :users do 
