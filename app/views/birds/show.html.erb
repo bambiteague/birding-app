@@ -4,6 +4,7 @@
 
 <%# put an image link here ?! %>
 
-<%= link_to 'All sightings of this bird', sighting_path(@species) %>
+<%= link_to 'All sightings of this bird', bird_sightings_path(@bird) %><br>
+<%= link_to 'Add a new sighting of this bird', new_bird_sighting_path(@bird) %>
 
 
