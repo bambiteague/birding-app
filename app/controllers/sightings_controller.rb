@@ -1,6 +1,7 @@
 class SightingsController < ApplicationController
 
   def new
+    User.find(session[:user_id])
     @sighting = Sighting.new   
     @sighting.build_bird 
   end
