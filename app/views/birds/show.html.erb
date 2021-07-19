@@ -1,7 +1,9 @@
 
-<h3>bird show page.......cant figure out what to display </h3>
-<h3>want to list bird by species name with a ul of all the sightings for that specific bird, but the logic i applied failed</h3>
+<h3>Meet The... </h3>
+<h1><%= @bird.species %>!</h1>
 
-<h2><%= @bird.species %></h2>
+<%# put an image link here ?! %>
+
+<%= button_to 'All sightings of this bird', bird_sightings_path(@bird) %>
 
 

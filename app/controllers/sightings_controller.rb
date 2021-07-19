@@ -1,13 +1,10 @@
 class SightingsController < ApplicationController
 
   def index 
-    # check if this request is a nested route
     if params[:bird_id] && @bird = Bird.find_by_id(params[:bird_id])
-    # if it is a nested route, let's only send in this bird's sightings
-      @bird.sightings
+      @sightings = @bird.sightings
     else
-    # otherwise, show all sightings
-    @sightings = Sighting.all
+      @sightings = Sighting.all
     end
   end
 
@@ -24,7 +21,6 @@ class SightingsController < ApplicationController
 
   def create
    @sighting = Sighting.new(sighting_params)
-  
     if @sighting.save
       redirect_to bird_sightings_path
     else

@@ -1,6 +1,7 @@
 
- <%= display_index_header(@bird) %>
-
-<% @sightings.collect do |s| %>
-  <p><%= link_to(s.location, sighting_path(s)) %> - <%= s.date_spotted %></p>
+<%= display_index_header(@bird) %>
+<ul>
+<% @sightings.each do |s| %>
+  <li><%= link_to(s.location, sighting_path(s)) %> - <%= s.date_spotted %></li>
 <% end %>
+<ul>

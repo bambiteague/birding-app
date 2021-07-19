@@ -15,8 +15,7 @@ class BirdsController < ApplicationController
   end
 
   def show
-    @bird = Bird.find_by_id(params[:bird_id])
-   # Getting NilClass errors when I call any attribute on @bird object found...
+    @bird = Bird.find_by_id(params[:id])
   end
 
   private
@@ -24,6 +23,7 @@ class BirdsController < ApplicationController
   def bird_params
     params.require(:bird).permit(
       :species, 
+      :sighting_id,
       :visual_description, 
       :call_description, 
       :quantity
