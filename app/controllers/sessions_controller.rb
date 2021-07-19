@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def omniauth   #Omniauth is not working to log in a user with Google atm (need to fix)
+  def omniauth 
     user = User.from_omniauth(request.env['omniauth.auth'])
     if user.valid?
       session[:user_id] = user.id

@@ -4,12 +4,10 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  #something about my validations below messed up login / commented out for now ----->
-  
-      validates :username, presence: {message: "is required"}, uniqueness: {message: "already in use"}
-      validates :location, presence: {message: "please let us know where you're birding from"}
-      validates :email, presence: {message: "is required"}, uniqueness: {message: "already in use"}
-      validates :password, presence: {message: "is required"}, length: {in: 6..20, message: "keep between 6-20 characters"}
+  validates :username, presence: {message: "is required"}, uniquenes{message: "already in use"}
+  validates :location, presence: {message: "please let us know where you'birding from"}
+  validates :email, presence: {message: "is required"}, uniqueness: {messag"already in use"}
+  validates :password, presence: {message: "is required"}, length: {in: 20, message: "keep between 6-20 characters"}
 
   def self.from_omniauth(response)
     User.find_or_create_by(uid: response[:uid], provider: response[:provider]) do |u|
