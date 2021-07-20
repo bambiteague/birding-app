@@ -49,8 +49,6 @@ class SightingsController < ApplicationController
     @sighting = Sighting.most_recent_bird_sighting
   end
 
-  def user_sightings
-
   private
 
   def sighting_params

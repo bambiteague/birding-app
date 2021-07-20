@@ -19,16 +19,11 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :sightings
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show, :index]
   resources :birds
   
   resources :birds do 
     resources :sightings, only: [:new, :create, :index, :show]
   end
-
-  resources :users do 
-    resources :sightings, only: [:user_sightings]
-  end
-
 
 end

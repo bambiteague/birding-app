@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     !!session[:user_id]
+    @user = @current_user
   end
 
   def redirect_if_not_logged_in
