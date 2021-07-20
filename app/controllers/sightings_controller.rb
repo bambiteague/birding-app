@@ -40,11 +40,6 @@ class SightingsController < ApplicationController
    end
   end
 
-  def destroy
-    find_sighting_by_id_params
-    @sighting.destroy
-  end
-
   def most_recent
     @sighting = Sighting.most_recent_bird_sighting
   end

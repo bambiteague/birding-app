@@ -1,8 +1,8 @@
 <h1 class="w3-text-teal"><%= @user.name %></h1><h2>here are your sightings!</h2><h4> Feel free to edit or delete as needed.</h4>
 
-<% if @users_sightings.empty? == false %>
-    <%= @users_sightings.each do |us| %>
-      <li><%= link_to(us.location, sighting_path(us)) %> - <%= us.date_spotted %></li>
+<% if @user_sightings.empty? == false %>
+    <%= @user_sightings.collect do |us| %>
+      <li><%= link_to(us.location, sighting_path(us)) %> - <% us.date_spotted %><%= link_to "Edit", edit_sighting_path(us.id) %>/li>
     <% end %>
 <% else %>
     <h2 class="w3-text-teal"> - No Sightings Recorded - </h2>

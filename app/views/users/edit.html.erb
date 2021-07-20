@@ -1,0 +1,42 @@
+<% if @sighting.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@sighting.errors.count, "error") %> prohibited this sighting from being saved:</h2>
+    <ul>
+      <% @sighting.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h2 class="w3-text-teal">Edit The Sighting Here:</h2>
+<%= form_for(@sighting_to_edit) do |f| %>
+  <%= f.label :location %>
+  <%= f.text_field :location, required: true %>
+    <br>
+    <br>
+  <%= f.label :date_spotted %>
+  <%= f.text_field :date_spotted, required: true %>
+    <br>
+    <br>
+<h3 class="w3-text-teal">& Your Bird Here:</h3>
+  <%= f.fields_for :bird do |s| %>
+    <%= s.label :species %>
+    <%= s.text_field :species %>
+    <br>
+    <br>
+    <%= s.label :visual_description %>
+    <%= s.text_area :visual_description %>
+    <br>
+    <br>
+    <%= s.label :call_description %>
+    <%= s.text_area :call_description %>
+    <br>
+    <br>
+    <%= s.label :quantity %>
+    <%= s.text_field :quantity, required: true, max: 100 %>
+    <br>
+    <br>
+  <% end %>
+<%= f.submit %>
+<% end %>

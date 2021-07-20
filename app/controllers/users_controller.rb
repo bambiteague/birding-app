@@ -15,12 +15,32 @@ class UsersController < ApplicationController
   end
 
   def index
-    @user = current_user
-    @users_sightings = @user.sightings
+      @user = current_user
+      @user_sightings = @user.sightings
   end
 
   def show
-    @user = current_user
+      @user = current_user
+  end
+
+  def edit
+    @sighting = Sighting.find(params[:id])
+    @sighting_to_edit = @sighting.bird_id
+  end
+
+  def update
+    @sighting = Sighting.find(params[:id])
+    @sighting.update(sighting_params)
+    if @sighting.valid?
+     redirect_to sighting_path
+    else
+     render :edit
+    end
+  end
+
+  def destroy
+    @sighting = Sighting.find(params[:id])
+    @sighting.destroy
   end
 
   private
@@ -33,6 +53,20 @@ class UsersController < ApplicationController
       :email, 
       :password, 
       :location
+    )
+  end
+
+  def sighting_params
+    params.require(:sighting).permit(
+      :location, 
+      :date_spotted,
+      :bird_id,
+      bird_attributes: [
+        :species, 
+        :visual_description, 
+        :call_description, 
+        :quantity
+      ]
     )
   end
 
