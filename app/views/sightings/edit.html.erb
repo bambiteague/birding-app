@@ -9,7 +9,7 @@
   </div>
 <% end %>
 
-<h2>Edit The Sighting Here:</h2>
+<h2 class="w3-text-teal">Edit The Sighting Here:</h2>
 <%= form_for(@sighting) do |f| %>
   <%= f.label :location %>
   <%= f.text_field :location, required: true %>
@@ -19,7 +19,7 @@
   <%= f.text_field :date_spotted, required: true %>
     <br>
     <br>
-<h3>& Your Bird Here:</h3>
+<h3 class="w3-text-teal">& Your Bird Here:</h3>
   <%= f.fields_for :bird do |s| %>
     <%= s.label :species %>
     <%= s.text_field :species %>

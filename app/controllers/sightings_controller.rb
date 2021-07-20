@@ -9,8 +9,7 @@ class SightingsController < ApplicationController
   end
 
   def show
-    @bird = Bird.find_by(id: params[:id])
-    @species = @bird.species
+    find_sighting_by_id_params
   end
 
   def new
