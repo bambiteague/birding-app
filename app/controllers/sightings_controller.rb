@@ -15,12 +15,13 @@ class SightingsController < ApplicationController
   def new
     @sighting = Sighting.new   
     @sighting.build_bird 
+    @bird = Bird.find_by_id(params[:bird_id])
   end
 
   def create
    @sighting = Sighting.new(sighting_params)
     if @sighting.save
-      redirect_to bird_sightings_path
+      redirect_to bird_sightings_path(@sighting)
     else
       render :new
     end
@@ -40,6 +41,12 @@ class SightingsController < ApplicationController
    end
   end
 
+  def destroy
+    sighting = Sighting.find(params[:id])
+    sighting.destroy
+    redirect_to :my_sightings_path
+  end
+
   def most_recent
     @sighting = Sighting.most_recent_bird_sighting
   end
@@ -51,6 +58,7 @@ class SightingsController < ApplicationController
       :location, 
       :date_spotted,
       :bird_id,
+      :user_id,
       bird_attributes: [
         :species, 
         :visual_description, 

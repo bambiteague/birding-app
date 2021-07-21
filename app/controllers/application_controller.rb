@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   #this will give us access to these methods in our views
-  helper_method :current_user, :logged_in?, :redirect_if_not_logged_in
-
+  helper_method :current_user, :logged_in?
+  
   private
 
   def current_user
@@ -9,11 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    !!current_user
-  end
-
-  def redirect_if_not_logged_in
-    redirect_to '/' if !logged_in?
+    !!session[:user_id]
   end
 
 end

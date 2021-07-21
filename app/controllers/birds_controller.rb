@@ -15,7 +15,7 @@ class BirdsController < ApplicationController
   end
 
   def show
-    @bird = Bird.find_by(id: params[:id])
+    @bird = Bird.find(params[:id])
     @species = @bird.species
   end
 

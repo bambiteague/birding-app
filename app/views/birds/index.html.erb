@@ -2,6 +2,6 @@
 
 <ul>
 <% @birds.each do |bird| %>
- <li><%= link_to bird.species, bird_path(bird) %></li>
+ <li><%= link_to bird.species, bird_path(bird) %> - <%= link_to "record sighting of bird.species", new_bird_sighting_path(bird)%></li>
 <% end %>
 </ul>

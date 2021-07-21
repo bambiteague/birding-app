@@ -7,8 +7,6 @@ class Sighting < ApplicationRecord
   validates :location, presence: {message: "required to record a sighting"}
   validates :date_spotted, presence: {message: "required to record a sighting"}
 
-  scope :sighting, -> { where(sighting: true) }
-
   def self.most_recent_bird_sighting
     order('created_at desc').first
   end
