@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   
   def destroy
     session.clear
@@ -26,7 +27,7 @@ class SessionsController < ApplicationController
       u.username = auth["info"]["email"]
       u.password = SecureRandom.hex(15)
     end
-       byebug #checking that they register successful
+       #checking that they register successful
     if user.valid?
       session["user_id"] = user.id #then log them in
       redirect_to user_path(user)

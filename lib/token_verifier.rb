@@ -6,7 +6,7 @@ class TokenVerifier
   config.each_key do |configuration_name|
     undef_method configuration_name
     define_method configuration_name do
-      ApplicationController::Base.config[configuration_name]
+      ActionController::Base.config[configuration_name]
     end
   end
 
