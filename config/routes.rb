@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
+  get '/auth/google_oauth2/callback' => 'sessions#omniauth'
 
   get '/sightings/most_recent' => 'sightings#most_recent'
 

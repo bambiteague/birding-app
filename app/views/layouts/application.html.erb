@@ -48,7 +48,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
       <%= link_to "Logout", logout_path, method: "delete", class: "w3-bar-item w3-button w3-hover-black" %>
     <% else %>
       <%= link_to "Sign Up", signup_path, class: "w3-bar-item w3-button w3-hover-black" %>
-      <%= button_to "Log in with Google", '/auth/google_oauth2', class: "w3-bar-item w3-button w3-hover-black"%>
+      <%= link_to "Log in with Google", '/auth/google_oauth2', method: :post, class: "w3-bar-item w3-button w3-hover-black"%>
       <%= link_to "Log in", login_path, class: "w3-bar-item w3-button w3-hover-black" %> 
     <% end %>
 </nav>
@@ -62,12 +62,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container"> 
   
-  <div>
-  <br>
-    <% if flash[:message] %>
-      <%= flash.now[:message] %>
-    <% end %>
-  </div>
+  <div><%= flash[:message] %></div>
   
     <%= yield %>
     
