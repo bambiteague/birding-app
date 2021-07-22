@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: {message: "already in use"}
   validates :email, presence: {message: "is required"}, uniqueness: {message: "already in use"}
-  validates :password, presence: {message: "is required"}, length: {in: 6...20, message: "keep between 6-20 characters"}
+  validates :password, presence: {message: "is required"}
 
 end

@@ -10,11 +10,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: params[:user][:username])
-    if @user && @user.authenticate(params[:user][:password])
+    @user = User.find_by(username: params["user"]["username"])
+    if @user && @user.authenticate(params["user"]["password"])
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
+      flash[:message] = "Oops, something went wrong!"
       redirect_to '/login'
     end
   end
@@ -25,7 +26,7 @@ class SessionsController < ApplicationController
       u.username = auth["info"]["email"]
       u.password = SecureRandom.hex(15)
     end
-        #checking that they register successful
+       byebug #checking that they register successful
     if user.valid?
       session["user_id"] = user.id #then log them in
       redirect_to user_path(user)
