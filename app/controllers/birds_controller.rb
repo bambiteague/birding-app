@@ -1,5 +1,6 @@
 class BirdsController < ApplicationController
-
+  before_action :redirect_if_not_logged_in
+  
   def new
     @bird = Bird.new
     @bird.sightings.build

@@ -1,4 +1,5 @@
 class SightingsController < ApplicationController
+  before_action :redirect_if_not_logged_in
 
   def index 
     if params[:bird_id] && @bird = Bird.find_by_id(params[:bird_id])
